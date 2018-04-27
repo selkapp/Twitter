@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<meta name="msapplication-TileImage" content="//vignette4.wikia.nocookie.net/logopedia/images/e/eb/Twitter_bird_favicon.svg/revision/latest?cb=20130409130510" />*@
+
+
+    @*<meta name="msapplication-TileImage" content="https://abs.twimg.com/favicons/win8-tile-144.png" />
+    <meta name="msapplication-TileColor" content="#00aced" />*@
+  
+    <meta name="msapplication-TileImage" content="//abs.twimg.com/favicons/win8-tile-144.png" />
+    <meta name="msapplication-TileColor" content="#00aced" />
+    <link rel="mask-icon" sizes="any" href="https://abs.twimg.com/a/1500372301/img/t1/favicon.svg" color="#1da1f2">
+    <link rel="shortcut icon" href="//abs.twimg.com/favicons/favicon.ico" type="image/x-icon">
+      <title>Twitter</title> 
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>body {background-color:rgba(205, 205, 255, 0.30);}  
+
+
+  
+     </style>
+                                                                        
+    
+</head>
+<body>
+    
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" style="background-color:white; border-bottom-color:white;" >
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          
+                @Html.ActionLink(" ", "Anasayfa", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    
+                    <li> <img data-src="holder.js/25x25" class="img-circle" alt="20x20" src="https://cdn3.iconfinder.com/data/icons/twitter-ui/48/jee01-32-128.png" data-holder-rendered="true" style="width:30px; height:30px; margin-top:8px;"> <li>
+                    <li>@Html.ActionLink("Anasayfa", "Anasayfa", "Home")</li>
+
+
+                    <li><img data-src="holder.js/30x30" class="img-circle" alt="30x30" src="https://cdn3.iconfinder.com/data/icons/twitter-ui/48/jee01-28-128.png" data-holder-rendered="true" style="width:36px; height:36px;margin-top:6px;"><li>
+                    <li>@Html.ActionLink("Bildirimler", "About", "Home")</li>
+
+
+                    <li><img data-src="holder.js/30x30" class="img-circle" alt="30x30" src="https://cdn3.iconfinder.com/data/icons/twitter-ui/48/jee01-23-128.png" data-holder-rendered="true" style="width:30px; height:30px;margin-top:8px;"><li>
+                   <li>@Html.ActionLink("Mesajlar", "Contact", "Home")</li>
+
+                    <li><img data-src="holder.js/25x25" class="img-circle" alt="25x25" src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-75-128.png" data-holder-rendered="true" style="width:30px; height:30px; margin-top:8px;"><li>
+                    <li>@Html.ActionLink("Profilim", "Profil", "Home")</li>
+
+                  
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div> 
+    @*</hr>*@
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/JavaScript.js"></script>
+</body>
+
+
+</html>

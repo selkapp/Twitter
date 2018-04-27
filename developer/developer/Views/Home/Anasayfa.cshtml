@@ -1,0 +1,248 @@
+﻿@model developer.Models.HomePage
+@*@{
+        ViewBag.Title = "Home Page";
+    }*@
+
+@*<head>
+
+</head>*@
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    &nbsp;
+
+
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-3">
+            <div class="container">
+                <img data-src="holder.js/270x100" src="http://renderdansonra.com/wp-content/uploads/2016/04/RENDERdanSONRA-CLOUDY-SKY-7.jpg" data-holder-rendered="true" style="width:230px; height:100px;" />
+                <div class="well well-lg" style="background-color:white;">
+
+
+
+                    <img data-src="holder.js/80x80" class="img-circle" alt="80x80" src="https://pbs.twimg.com/profile_images/884368874011054080/xsf3FraE_400x400.jpg" data-holder-rendered="true" style="width: 70px; height: 70px; position:absolute; left:50px; top:70px; border-color:white;">
+
+
+                    <div class="col-md-offset-6">
+                   
+                        <a href="http://localhost:62771/Home/Profil" style="font-size:17px;  color:darkgray; "> @Model.User.Name</a>
+
+                       
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-4">
+                            <p><a href="http://localhost:62771/Home/Profil" style="font-size:14px;color:darkgray;">Tweetler</a></p>
+                            <br />
+
+                            <p><a href="http://localhost:62771/Home/Profil" style="font-size:15px; color:dodgerblue;">@Model.User.StatusesCount</a></p>
+
+
+                        </div>
+                        <div class="col-xs-5 col-sm-4">
+                            <p><a href="http://localhost:62771/Home/Takipedilen"style="font-size:14px; color:darkgray;">Takip Edilenler</a></p>
+
+                            <p><a href="http://localhost:62771/Home/Takipedilen" style="font-size:15px; color:dodgerblue;">@Model.User.FriendsCount</a></p>
+
+
+                        </div>
+
+                        <div class="col-xs-5 col-sm-4">
+                            <p><a href="http://localhost:62771/Home/Takipci"style="font-size:14px;color:darkgray;">Takipçiler</a></p>
+                            <br />
+
+                            <p><a href="http://localhost:62771/Home/Takipci" style="font-size:15px; color:dodgerblue;">@Model.User.FollowersCount</a></p>
+
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+               @*<div class="well well-lg" style="background-color:white;">
+
+                    
+                    
+                     <a href ="http://localhost:62771/Home/Takip_istegi" >@Tweetinvi.Account.GetUserIdsRequestingFriendship().Count()  Takip İsteği  </a>
+
+
+                </div>*@
+
+                    <div class="well well-lg" style="background-color:white;">
+                        <p><b>Kendini Tanıt</b></p>  <h2></h2>
+                        <text>Kim olduğunu ve nelerle ilgilendiğini açıkla.</text>
+
+                        <h2></h2>
+
+
+                        @Html.TextArea("tanit", null,  new { @class = "form-control" })
+
+
+                        <h2></h2>
+                        <h2></h2>
+                    </div>
+
+                @*@using (Html.BeginForm("Gundem_cek", "Home", new { gundemid = 1 }))
+
+                            {*@
+                    <div class="well well-lg" style="background-color:white;">
+
+
+                        <p style="font-size:25px;">Gündem</p>
+
+
+                        @foreach (Tweetinvi.Models.ITrend item in Model.Gundem)
+                        {
+
+                          <a href="/Home/Gundem_cek?query=@item.Query">@item.Name</a><br />
+
+                        }
+                           
+                    </div> 
+                @*}*@
+                </div>
+        </div>
+
+
+
+        @using (Html.BeginForm("Yaz", "Home"))
+        {
+
+        <div class="col-xs-6 col-sm-6">
+                <div class="container">
+                    @*<div class="well well-lg">*@
+
+
+                    <center>
+                        @*<a href="#">Yeni Tweetleri Görüntüle!<span class="badge"></span></a><br />*@
+
+
+                        @Html.TextArea("benim_tweetim",null, @*rows:"20", columns:"50",*@  new { @class = "form-control" } )
+
+
+
+                        <button class="btn btn-default" style='background: #fff;  font-weight:bold; ' type='submit' value='Tweetle' />
+
+                    </center>
+
+
+
+
+                    @*</div>*@
+
+                    @foreach (Tweetinvi.Models.ITweet item in Model.Tweets)
+                    {
+                        <div class="well well-lg" style="background-color:white;" id="t@(item.Id)"  >
+
+                            <div class="col-md-offset-11 top-right ">
+                          
+                                <p style="font-size:10px; color:gray; ">@item.CreatedAt.AddMinutes(1)</p>
+
+
+
+
+                             </div>
+
+                            <div class="col-xs-2">
+
+
+                                <a href="#"><img src="@item.CreatedBy.ProfileImageUrlHttps" class="img-circle" usemap="#planetmap" /></a>
+
+                            </div>
+                            <a href="@item.Url" style="font-size:16px; color:dodgerblue; ">@item.CreatedBy.ScreenName</a>
+
+                            <p style="font-size:13px;">@item.Text</p>
+
+                       
+                            
+                                @foreach (Tweetinvi.Models.Entities.IMediaEntity medya in item.Media)
+                                {
+                                    <img src="@medya.MediaURL" style="width:475px; height:280px;" />
+
+                               
+
+                                }
+
+
+
+                            @*@foreach (Tweetinvi.Models.Entities.IMediaEntity video in item.Media)
+                            {
+                                <img src="@video.VideoDetails" style="width:475px; height:280px;" />
+
+
+                            }*@
+
+
+                     
+                          
+                                <ul class="nav nav-pills " role="tablist">
+
+                                  
+                                    <li><a href="#" class="fa fa-commenting" style="top:5px;"> </a></li>
+
+
+                                    <li><a href="#t@(item.Id)" class="fa fa-retweet" style="top:5px;" onclick="addRt('@(item.Id)',this);"><p>@item.RetweetCount</p> </a></li>
+
+                                    <li><a href="#t@(item.Id)" class="fa fa-heart" style="top:5px;" onclick="addFav('@(item.Id)',this);"><p>@item.FavoriteCount</p> </a></li>
+
+
+                                    <li><a href="http://localhost:62771/Home/Contact" class="fa fa-envelope" style="top:5px;"> </a></li>
+
+                                    <li> <a href="#t@(item.Id)" class="fa fa-trash" style="top:5px; width:55px; height:45px;" onclick="deletet('@(item.Id)',this);"></a></li>
+
+                                </ul>
+                            </div>
+
+                        @*</div>*@
+                    }
+                </div>
+            </div>
+
+        }
+
+        <div class="col-xs-6 col-sm-3">
+            <div class="container">
+
+
+                <div class="well well-lg" style="background-color:white;">
+
+                    <p style="font-size:20px;">Kimi Takip Etmeli</p>
+
+                    <br />
+
+                   
+
+
+                    @foreach (Tweetinvi.Models.IUser item in Model.Friends)
+                    {
+
+                        <a href="#"><img src="@item.ProfileImageUrlHttps" class="img-circle" usemap="#planetmap" /></a>
+
+                   
+                        <p style="font-size:12px; color:dodgerblue; ">@item.Name</p>
+
+
+                    }
+
+        
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+
+
+</html>

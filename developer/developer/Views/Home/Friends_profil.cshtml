@@ -1,0 +1,151 @@
+﻿@model developer.Models.HomePage
+<!DOCTYPE html>
+
+<html>
+<head>
+   
+
+    <meta name="viewport" content="width=device-width" />
+    <img data-src="holder.js/270x100" src="#" data-holder-rendered="true" style="width:1130px; height:350px;" />
+
+
+
+
+    <div class="well well-lg" style="background-color:white;">
+
+
+        <img data-src="holder.js/80x80" class="img-circle" alt="180x180" src="#" data-holder-rendered="true" style="width:180px; height:180px; position:absolute; left:170px; top:290px; border-color:white;">
+
+
+        <div class="container col-md-offset-4" style="color:white;">
+            <div class="btn-group" style="background-color:white;border-color:white;">
+                <a href="#" type="button" class="btn btn-primary" style="background-color:white; color:darkgray; border-color:white; ">Tweetler</a>
+                <a href="#" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Takipciler</a>
+                <a href="#" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Takip Edilenler</a>
+                <a href="#" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Begeni</a>
+                <a href="#" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Anlar</a>
+
+            </div>
+        </div>
+
+        <div class="container col-md-offset-4" style="color:white;">
+
+            <div class="col-xs-4 col-sm-2">
+
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+
+
+            </div>
+        </div>
+    </div>
+
+</head>
+
+
+<body>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-3">
+            <div class="container">
+
+                <div class="well well-lg" style="background-color:white;">
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        @*<div class="col-xs-6 col-sm-6">
+            <div class="container">
+                <div class="well well-lg" style="background-color:white;">
+
+                    @foreach (Tweetinvi.Models.ITweet item in Model.Mytwt)
+                    {
+
+
+                        <div class="form-group">
+                            <a herf="#"> <img class="img-circle" src="@item.CreatedBy.ProfileImageUrlHttps"></a>
+
+                            <a style="color:dodgerblue; font-size:18px;"> &nbsp; @item.CreatedBy.Name</a> <br />
+                            <a style="font-size:13px;  color:darkgray; "> @item.CreatedBy.ScreenName</a>
+
+
+
+                            <div>
+                                <p style="font-size:17px;">@item.Text</p>
+
+                                @foreach (var item2 in item.Media)
+                {
+                                    <img src="@item2.MediaURL" style="width:475px; height:250px;" />
+
+
+                                }
+
+                            </div>
+                        </div>
+                        <ul class="nav nav-pills " role="tablist">
+
+                            <li><a href="#"><img data-src="holder.js/30x30" alt="30x30" src="https://cdn3.iconfinder.com/data/icons/twitter-ui/48/jee01-25-128.png" data-holder-rendered="true" style="width:30px; height:30px;">  </a>
+                            <li>
+
+
+                            <li><a href="#t@(item.Id)" class="fa fa-retweet" style="top:5px;" onclick="addRt('@(item.Id)',this);"> </a></li>
+
+                            <li><a href="#t@(item.Id)" class="fa fa-heart" style="top:5px;" onclick="addFav('@(item.Id)',this);"> </a></li>
+
+                            <li><a href="http://localhost:62771/Home/Contact"><img data-src="holder.js/30x30" alt="30x30" src="https://cdn3.iconfinder.com/data/icons/twitter-ui/48/jee01-23-128.png" data-holder-rendered="true" style="width:30px; height:30px;">  </a>
+                            <li>
+
+
+                        </ul>
+
+                    }
+
+                </div>
+
+
+            </div>
+        </div>*@
+
+
+
+        @*<div class="col-xs-6 col-sm-3">
+            <div class="container">
+
+                <div class="well well-lg" style="background-color:white;">
+
+                    <p style="font-size:20px;">Kimi Takip Etmeli</p>
+
+                    <br />
+
+
+
+
+                </div>
+
+            </div>
+        </div>*@
+
+    </div>
+
+</body>
+</html>

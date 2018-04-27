@@ -1,0 +1,122 @@
+﻿@model developer.Models.HomePage
+
+    <div class="row">
+
+
+        <div class="col-xs-5 col-sm-3">
+        </div>
+
+            <div class="col-xs-5 col-sm-6">
+
+
+                <br />
+
+                <br />
+
+                <div class="well" style="background-color:white;">
+
+
+
+                    @foreach (Tweetinvi.Models.ITweet item in Model.Yol)
+            {
+                        <div class="well well-lg" style="background-color:white;" id="t@(item.Id)">
+
+                            <div class="col-md-offset-11 top-right ">
+
+                                <p style="font-size:10px; color:gray; ">@item.CreatedAt.AddMinutes(1)</p>
+
+
+
+
+                            </div>
+
+                            <div class="col-xs-2">
+
+
+                                <a href="#"><img src="@item.CreatedBy.ProfileImageUrlHttps" class="img-circle" usemap="#planetmap" /></a>
+
+                            </div>
+                            <p style="font-size:16px; color:dodgerblue; ">@item.CreatedBy.ScreenName</p>
+
+                            <p style="font-size:13px;">@item.Text</p>
+
+
+
+                            @foreach (Tweetinvi.Models.Entities.IMediaEntity medya in item.Media)
+                            {
+                                <img src="@medya.MediaURL" style="width:475px; height:280px;" />
+
+
+
+                            }
+
+
+
+
+
+
+                            <ul class="nav nav-pills " role="tablist">
+
+
+                                <li><a href="#" class="fa fa-commenting" style="top:5px;"> </a></li>
+
+
+                                <li><a href="#t@(item.Id)" class="fa fa-retweet" style="top:5px;" onclick="addRt('@(item.Id)',this);"><p>@item.RetweetCount</p> </a></li>
+
+                                <li><a href="#t@(item.Id)" class="fa fa-heart" style="top:5px;" onclick="addFav('@(item.Id)',this);"><p>@item.FavoriteCount</p> </a></li>
+
+
+                                <li><a href="http://localhost:62771/Home/Contact" class="fa fa-envelope" style="top:5px;"> </a></li>
+
+                                <li> <a href="#t@(item.Id)" class="fa fa-trash" style="top:5px; width:55px; height:45px;" onclick="deletet('@(item.Id)',this);"></a></li>
+
+                            </ul>
+                        </div>
+
+
+                    }
+                </div>
+
+
+                }
+            </div>
+
+
+
+
+
+            <div class="col-xs-5 col-sm-3">
+                <br />
+
+                <br />
+
+                <div class="well" style="background-color:white;">
+
+                    @*<br />
+                    <br />*@
+
+
+                    <p style="font-size:20px;">Kimi Takip Etmeli</p>
+
+                    <br />
+
+
+
+
+                    @foreach (Tweetinvi.Models.IUser item in Model.Friends)
+                    {
+
+                        <a href="#"><img src="@item.ProfileImageUrlHttps" class="img-circle" usemap="#planetmap" /></a>
+
+
+                        <p style="font-size:12px; color:dodgerblue; ">@item.Name</p>
+
+
+                    }
+
+                </div>
+
+
+
+                </div>
+        </div>

@@ -1,0 +1,100 @@
+﻿@model developer.Models.HomePage
+
+
+<html>
+<head>
+
+
+
+    <meta name="viewport" content="width=device-width" />
+
+    <img data-src="holder.js/270x100" src="http://renderdansonra.com/wp-content/uploads/2016/04/RENDERdanSONRA-CLOUDY-SKY-7.jpg" data-holder-rendered="true" style="width:1130px; height:350px;" />
+    <div class="well well-lg" style="background-color:white;">
+
+
+        <img data-src="holder.js/80x80" class="img-circle" alt="180x180" src="https://pbs.twimg.com/profile_images/884368874011054080/xsf3FraE_400x400.jpg" data-holder-rendered="true" style="width:180px; height:180px; position:absolute; left:170px; top:290px; border-color:white;">
+
+
+        <div class="container col-md-offset-4" style="color:white;">
+            <div class="btn-group" style="background-color:white;border-color:white;">
+                <a href="http://localhost:62771/Home/Profil" type="button" class="btn btn-primary" style="background-color:white; color:darkgray; border-color:white; ">Tweetler</a>
+                <a href="http://localhost:62771/Home/Takipci" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Takipciler</a>
+                <a href="http://localhost:62771/Home/Takipedilen" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Takip Edilenler</a>
+                <a href="#" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Begeni</a>
+                <a href="#" type="button" class="btn btn-primary" style="background-color:white;color:darkgray;border-color:white;">Anlar</a>
+
+            </div>
+        </div>
+
+        <div class="container col-md-offset-4" style="color:white;">
+
+            <div class="col-xs-4 col-sm-2">
+
+                <p><a href="http://localhost:62771/Home/Profil" style="font-size:15px; color:dodgerblue;">@Model.User.StatusesCount</a></p>
+
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+
+                <p><a href="http://localhost:62771/Home/Takipedilen" style="font-size:15px; color:dodgerblue;">@Model.User.FriendsCount</a></p>
+
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                 <p><a href="http://localhost:62771/Home/Takipci" style="font-size:15px; color:dodgerblue;">@Model.User.FollowersCount</a></p>
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                @*<p style="font-size:13px;color:blue;">5</p>*@
+
+
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                @*<p style="font-size:13px;color:blue;">5</p>*@
+
+
+            </div>
+        </div>
+    </div>
+
+</head>
+
+
+<body>
+
+    
+    <div class="container">
+@foreach (Tweetinvi.Models.IUser takip in Model.Followers)
+{
+
+            <div class="col-xs-6 col-sm-4">
+               
+
+                    <div class="well">
+
+
+                        <a href="#"><img src="@takip.ProfileBannerURL" style="width:300px; height:100px;" /></a><br />
+
+
+                        <a href="#"><img src="@takip.ProfileImageUrlHttps" class="img-circle" usemap="#planetmap" style="position:absolute; left:50px; top:100px;"  /></a><br />
+
+                        <br />
+
+                        <a href="#" > @takip.Name </a>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+}
+        </div>
+
+</body>
+</html>

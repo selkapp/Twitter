@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Gonder";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+@using (Html.BeginForm("Yaz", "Home")) { 
+   <center>
+
+       <div class="col-sm-12">
+           <div class="container">
+               <div class="well well-lg"style="background-color:white;">
+
+                   @Html.TextArea("benim_tweetim",null,new {@class="form-control"})
+                 
+                   <button class="btn btn-default" style='background: #fff;  border: 2px outset #fff; color: #808080; font-weight: bold;' type='submit' value='Tweetle' />
+
+
+               </div>
+
+           </div>
+       </div>
+
+   </center>
+
+
+}
+
+
+</body>
+</html>
+
+@*@{
+    ViewBag.Title = "Yaz";
+}
+
+<h2>Yaz</h2>*@
+
